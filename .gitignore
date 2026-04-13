@@ -1,0 +1,19 @@
+# Python env
+ytve/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Data (optional)
+data/
+vectorstore/
+
+# OS
+.DS_Store
+Thumbs.db
