@@ -1,6 +1,6 @@
 # Privacy-Preserving RAG Chatbot
 
-A full-stack AI chatbot that uses Retrieval-Augmented Generation (RAG) to deliver accurate, context-grounded responses — while minimizing hallucination and keeping user data private. Built with a ChatGPT-style interface, powered by Groq and PostgreSQL.
+A full-stack AI chatbot that uses Retrieval-Augmented Generation (RAG) to deliver accurate, context-grounded responses — while minimizing hallucination and keeping user data private. Built with a ChatGPT-style interface, powered by Groq and VectorDb.
 
 ---
 
@@ -10,7 +10,7 @@ Most AI chatbots hallucinate because they rely solely on the model's training da
 
 There are two core pipelines:
 
-**Data Ingestion Pipeline** — Upload your documents → they get chunked into segments → each chunk is embedded into a vector → stored in a PostgreSQL vector database.
+**Data Ingestion Pipeline** — Upload your documents → they get chunked into segments → each chunk is embedded into a vector → stored in a VectorDb vector database.
 
 **Query Pipeline** — User sends a message → it gets embedded → similarity search finds the top 5 most relevant chunks from your data → those chunks are passed as context to the Groq LLM along with a structured prompt → the model responds accurately based on your data, not guesswork.
 
@@ -22,7 +22,7 @@ There are two core pipelines:
 |---|---|
 | Backend | Python, Flask, Flask-CORS |
 | Frontend | React.js (ChatGPT-style UI) |
-| Database | PostgreSQL (via psycopg2) |
+| Database | ChromaDB |
 | LLM | Groq API |
 | Auth | bcrypt password hashing |
 | Embeddings | Vector similarity search |
@@ -70,7 +70,7 @@ There are two core pipelines:
 ### Prerequisites
 
 - Python 3.9+
-- PostgreSQL running locally
+- VectorDB
 - Groq API key
 
 ### Setup
@@ -83,7 +83,7 @@ cd Rag_application_to_solve_privacy_and_hallucination
 # Install dependencies
 pip install -r requirment.txt
 
-# Set up PostgreSQL database
+# Set up VectorDb database
 # Create a database named 'rag_app' and update credentials in app.py
 
 # Run the backend
